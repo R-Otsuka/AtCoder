@@ -32,15 +32,22 @@
 
 
 H, W = map(int, input().split())
-field = [str(input()) for i in range(H)]
 dx = [-1, 0, 1, -1, 1, -1, 0, 1]
 dy = [-1, -1, -1, 0, 0, 1, 1, 1]
+l = []
+for i in range(H):
+    l.append(list(input()))
 
 for i in range(H):
     for j in range(W):
-
-        if field[i][j] == ".":
+        if l[i][j] == ".":
             count = 0
             for m in range(8):
                 di = i + dx[m]
                 dj = j + dy[m]
+                if 0 <= di < H and 0 <= dj < W:
+                    if l[di][dj] == "#":
+                        count += 1
+            l[i][j] = str(count)
+for i in range(H):
+    print("".join(l[i]))
