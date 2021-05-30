@@ -15,3 +15,37 @@ https://qiita.com/KoyanagiHitoshi/items/c5e82841b8d0f750851d
 ここまで解いたら
 https://qiita.com/drken/items/fd4e5e3630d0f5859067#%E3%81%93%E3%81%93%E3%81%BE%E3%81%A7%E8%A7%A3%E3%81%84%E3%81%9F%E3%82%89
 https://qiita.com/e869120/items/acba3dd8649d913102b5
+
+# 計算量オーダー
+
+## 超ざっくり知りたい計算量の話
+
+https://qiita.com/colum2131/items/c765d404346b2547a43a
+
+- O(N)
+  「1 ＋ 2 ＋・・・」と n 回のステップ数が掛かったため計算量は O(N)
+  入力サイズ N に比例
+
+- O(N2)O(N2)
+
+```
+for i in range(1, n+1):
+    for j in range(1, n+1):
+        ans += i * j
+print(ans)
+```
+
+計算量は N の 2 乗に比例する。
+
+for 文が二つある場合の計算量は O(N)
+これは次数のみ考慮で、係数は無視するため。
+
+- timeOut の基準
+  1 秒間に処理できるステップ数はおよそ 10**8 回
+  1≦N≦10**7 の O(N)は大体通る。
+
+  しかし Python はスクリプト言語(遅い)ため、必ずしもこの通りではない。
+  (※)そもそもAtCoderの実行マシンのスペック
+
+- その他メソッドの計算量
+  sortメソッドの計算量はO(NlogN)
