@@ -1,24 +1,18 @@
-len = list(str(input()))
-
-num1 = len[0]
-num = 7-int(num1)
-del len[0]
+len = list(map(int, list(str(input()))))
 
 n = 3
+A = len[0]
 for i in range(2**n):
-    total = 0
+    text=str(A)
+    ans = A
     for j in range(n):
-        if ((i >> j) & 1):
-            total += int(len[j])
+        if (i >> j) & 1:
+            ans += len[j+1]
+            text = text + "+" + str(len[j+1])
         else:
-            total -= int(len[j])
-    if total == num:
-        ans = num1
-        for j in range(n):
-            if ((i >> j) & 1):
-                ans = ans+"+"+len[j]
-            else:
-                ans = ans+"-"+len[j]
-        ans = ans+"=7"
-        print(ans)
+            ans -= len[j+1]
+            text = text + "-" + str(len[j+1])
+    if ans == 7:
+        text += "=7"
+        print(text)
         exit()
