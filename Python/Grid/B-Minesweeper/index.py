@@ -1,3 +1,28 @@
+H, W = list(map(int, input().split()))
+map = [list(input()) for i in range(H)]
+
+dx = [-1, 0, 1, -1, 1, -1, 0, 1]
+dy = [-1, -1, -1, 0, 0, 1, 1, 1]
+
+
+for i in range(H):
+  for j in range(W):
+    if map[i][j] == '#':
+      continue
+    num = 0
+    for (n) in range (8):
+      new_i = i + dx[n]
+      new_j = j + dy[n]
+      if 0 <= new_i < H and 0 <= new_j < W:
+        if map[new_i][new_j] == "#":
+          num += 1
+    map[i][j] = str(num)
+
+for i in range(H):
+  print("".join(map[i]))
+
+
+
 # N, H = list(map(int, input().split()))
 # Square1 = []
 # dx = [-1, 0, 1, -1, 1, -1, 0, 1]
@@ -31,23 +56,23 @@
 #   print(ans)
 
 
-H, W = map(int, input().split())
-dx = [-1, 0, 1, -1, 1, -1, 0, 1]
-dy = [-1, -1, -1, 0, 0, 1, 1, 1]
-l = []
-for i in range(H):
-    l.append(list(input()))
+# H, W = map(int, input().split())
+# dx = [-1, 0, 1, -1, 1, -1, 0, 1]
+# dy = [-1, -1, -1, 0, 0, 1, 1, 1]
+# l = []
+# for i in range(H):
+#     l.append(list(input()))
 
-for i in range(H):
-    for j in range(W):
-        if l[i][j] == ".":
-            count = 0
-            for m in range(8):
-                di = i + dx[m]
-                dj = j + dy[m]
-                if 0 <= di < H and 0 <= dj < W:
-                    if l[di][dj] == "#":
-                        count += 1
-            l[i][j] = str(count)
-for i in range(H):
-    print("".join(l[i]))
+# for i in range(H):
+#     for j in range(W):
+#         if l[i][j] == ".":
+#             count = 0
+#             for m in range(8):
+#                 di = i + dx[m]
+#                 dj = j + dy[m]
+#                 if 0 <= di < H and 0 <= dj < W:
+#                     if l[di][dj] == "#":
+#                         count += 1
+#             l[i][j] = str(count)
+# for i in range(H):
+#     print("".join(l[i]))
