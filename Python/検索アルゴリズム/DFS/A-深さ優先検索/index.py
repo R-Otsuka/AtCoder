@@ -16,7 +16,7 @@ def dfs(i, j):
         dfs(i, j+-1)
 
 
-for i in range(H):
+for i in range(H):0
     for j in range(W):
         if map[i][j] == "s":
             dfs(i, j)
