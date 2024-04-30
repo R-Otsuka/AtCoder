@@ -1,0 +1,5 @@
+3 4
+3 said 2 was a liar.
+3 said 1 was a liar.
+1 said 1 was an honest person..
+3 said 2 was an honest person.
